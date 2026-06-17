@@ -40,26 +40,10 @@ Dieses Werkzeug erzeugt den passenden Code aus dem Schlüssel der **aktuellen Ma
 ```powershell
 # PowerShell als Administrator öffnen, dann:
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\Show-BitLockerBarcode.ps1
+.\BitMatrix.ps1
 ```
 
-Häufige Parameter:
 
-```powershell
-# Anderes Laufwerk
-.\Show-BitLockerBarcode.ps1 -MountPoint D:
-
-# Breitere Balken (bessere Scanbarkeit vom Bildschirm)
-.\Show-BitLockerBarcode.ps1 -ModuleWidth 4
-
-# PNG nicht löschen (zum Drucken/Archivieren)
-.\Show-BitLockerBarcode.ps1 -KeepFile
-
-# Nur Barcode, ohne QR
-.\Show-BitLockerBarcode.ps1 -NoQR
-```
-
----
 
 ## Wichtige Hinweise
 
@@ -81,7 +65,7 @@ Häufige Parameter:
 ## Geplant / To-do (was noch zu tun ist)
 
 - [ ] **Bereitstellung als `.exe`**, damit das Tool ohne PowerShell-Kenntnisse per Doppelklick läuft
-      (z. B. mit dem Modul `ps2exe`: `Invoke-ps2exe .\Show-BitLockerBarcode.ps1 .\Show-BitLockerBarcode.exe`)
+      (z. B. mit dem Modul `ps2exe`: `Invoke-ps2exe .\BitMatrix.ps1 .\Show-BitLockerBarcode.exe`)
 - [ ] Automatische Administrator-Rechteanforderung (Self-Elevation im Skript)
 - [ ] Optional: digitale Signatur der `.exe` für die unternehmensweite Verteilung
 - [ ] Optional: Auswahl eines bestimmten Key-Protectors per Parameter, wenn mehrere vorhanden sind
@@ -92,7 +76,7 @@ Häufige Parameter:
 
 | Datei | Beschreibung |
 |---|---|
-| `Show-BitLockerBarcode.ps1` | Hauptskript |
+| `BitMatrix.ps1` | Hauptskript |
 | `README.md` | Diese Dokumentation |
 
 ---
