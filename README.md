@@ -64,7 +64,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 ## Geplant / To-do (was noch zu tun ist)
 
-- [ ] **Bereitstellung als `.exe`**, damit das Tool ohne PowerShell-Kenntnisse per Doppelklick läuft
+- [x] **Bereitstellung als `.exe`**, damit das Tool ohne PowerShell-Kenntnisse per Doppelklick läuft
       (z. B. mit dem Modul `ps2exe`: `Invoke-ps2exe .\BitMatrix.ps1 .\Show-BitLockerBarcode.exe`)
   
 ---
