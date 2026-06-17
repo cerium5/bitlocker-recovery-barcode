@@ -1,4 +1,4 @@
- BitMatrix
+## BitMatrix
 
 
  #BitMatrix v1.0.0 - Release
@@ -17,7 +17,7 @@ Dieses Werkzeug erzeugt den passenden Code aus dem Schlüssel der **aktuellen Ma
 
 ---
 
-## Funktionen
+ Funktionen
 
 - Liest den Recovery-Key lokal aus (`Get-BitLockerVolume`, Fallback `manage-bde`)
 - Zeigt zusätzlich die **Key-Protector-ID** an → Abgleich mit der ID auf dem Wiederherstellungsbildschirm
