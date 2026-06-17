@@ -1,4 +1,4 @@
-# BitLocker Recovery Key → Barcode & QR-Code
+# BitMatrix
 
 Ein PowerShell-Werkzeug, das den lokalen **BitLocker-Wiederherstellungsschlüssel** ausliest und ihn als **Code128-Barcode** (in 3 Blöcken) sowie als **QR-Code** anzeigt. Der Schlüssel kann anschließend mit einem Barcode-/QR-Scanner direkt in den BitLocker-Wiederherstellungsbildschirm eingelesen werden – ohne die 48 Ziffern von Hand abzutippen.
 
@@ -8,7 +8,7 @@ Ein PowerShell-Werkzeug, das den lokalen **BitLocker-Wiederherstellungsschlüsse
 
 Barcode-Scanner verhalten sich gegenüber dem System wie eine Tastatur und funktionieren bereits **vor dem Start von Windows**, also auch im BitLocker-Wiederherstellungsbildschirm. Damit lässt sich der lange Recovery-Key (48 Ziffern, 8 Gruppen à 6) per Scan in Sekunden eingeben, statt ihn fehleranfällig manuell zu tippen.
 
-Dieses Skript erzeugt den passenden Code aus dem Schlüssel der **aktuellen Maschine**.
+Dieses Werkzeug erzeugt den passenden Code aus dem Schlüssel der **aktuellen Maschine**.
 
 ---
 
@@ -17,7 +17,7 @@ Dieses Skript erzeugt den passenden Code aus dem Schlüssel der **aktuellen Masc
 - Liest den Recovery-Key lokal aus (`Get-BitLockerVolume`, Fallback `manage-bde`)
 - Zeigt zusätzlich die **Key-Protector-ID** an → Abgleich mit der ID auf dem Wiederherstellungsbildschirm
 - Erzeugt **Code128-Barcode in 3 Blöcken** (selbst gerendert, keine Schriftart nötig)
-- Erzeugt **QR-Code** über das lokal installierte Tool *CodeTwo QR Code Desktop Reader & Generator*
+- Erzeugt **QR-Code** – vollständig vom Skript selbst generiert (eigener QR-Encoder, keine externe Software nötig)
 - Ein gemeinsames PNG, geöffnet im lokalen Bildbetrachter **IrfanView**
 - **Komplett offline** – keine Module-Installation, kein Internet zur Laufzeit nötig
 - PNG wird nach dem Schließen standardmäßig wieder gelöscht (enthält den Klarschlüssel)
@@ -32,7 +32,6 @@ Dieses Skript erzeugt den passenden Code aus dem Schlüssel der **aktuellen Masc
 | Ausführung als **Administrator** | Pflicht zum Auslesen des Keys |
 | Windows PowerShell 5.1 | Standard unter Windows 10/11 |
 | **IrfanView** | zur Anzeige des PNG |
-| **CodeTwo QR Code Desktop Reader & Generator** | zur QR-Erzeugung |
 
 ---
 
@@ -75,7 +74,7 @@ Häufige Parameter:
 
 - [x] Auslesen des Recovery-Keys inkl. Key-Protector-ID
 - [x] Code128-Barcode in 3 Blöcken (funktioniert zuverlässig, getestet mit Zebra DS2278)
-- [x] QR-Erzeugung über CodeTwo-Tool (eigener QR-Encoder verworfen, da nicht scanbar)
+- [x] QR-Code wird direkt vom Skript erzeugt und ist scanbar
 - [x] Anzeige im PNG über IrfanView
 - [x] Vollständig offline lauffähig
 
@@ -84,7 +83,6 @@ Häufige Parameter:
 - [ ] **Bereitstellung als `.exe`**, damit das Tool ohne PowerShell-Kenntnisse per Doppelklick läuft
       (z. B. mit dem Modul `ps2exe`: `Invoke-ps2exe .\Show-BitLockerBarcode.ps1 .\Show-BitLockerBarcode.exe`)
 - [ ] Automatische Administrator-Rechteanforderung (Self-Elevation im Skript)
-- [ ] Prüfen, ob die Abhängigkeit von CodeTwo durch eine eigenständige, gebündelte QR-Lösung ersetzt werden kann
 - [ ] Optional: digitale Signatur der `.exe` für die unternehmensweite Verteilung
 - [ ] Optional: Auswahl eines bestimmten Key-Protectors per Parameter, wenn mehrere vorhanden sind
 
