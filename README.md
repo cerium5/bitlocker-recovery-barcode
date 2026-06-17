@@ -1,4 +1,9 @@
-# BitMatrix
+ BitMatrix
+
+
+ #BitMatrix v1.0.0 - Release
+
+Dieses Tool wandelt BitLocker-Wiederherstellungsschlüssel (Recovery Keys) automatisch in scannbare Barcodes und QR-Codes um, um den IT-Support und die Systemadministration zu beschleunigen.
 
 Ein PowerShell-Werkzeug, das den lokalen **BitLocker-Wiederherstellungsschlüssel** ausliest und ihn als **Code128-Barcode** (in 3 Blöcken) sowie als **QR-Code** anzeigt. Der Schlüssel kann anschließend mit einem Barcode-/QR-Scanner direkt in den BitLocker-Wiederherstellungsbildschirm eingelesen werden – ohne die 48 Ziffern von Hand abzutippen.
 
